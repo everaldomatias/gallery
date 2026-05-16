@@ -65,7 +65,12 @@ export const featuredWorks = worksSeed.map(([title, category, size], index) => {
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
       ],
-      relatedIds: [((id + 1 - 1) % worksSeed.length) + 1, ((id + 2 - 1) % worksSeed.length) + 1],
+      relatedIds: [
+        ((id + 1 - 1) % worksSeed.length) + 1,
+        ((id + 2 - 1) % worksSeed.length) + 1,
+        ((id + 3 - 1) % worksSeed.length) + 1,
+        ((id + 4 - 1) % worksSeed.length) + 1,
+      ],
     },
   };
 });
