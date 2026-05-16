@@ -1,9 +1,9 @@
 export const navigation = [
-  'Lorem',
-  'Ipsum',
-  'Dolor',
-  'Sit Amet',
-  'Consectetur',
+  { href: '#', isActive: false, label: 'Lorem' },
+  { href: '#', isActive: false, label: 'Ipsum' },
+  { href: '#portfolio', isActive: true, label: 'Dolor' },
+  { href: '#', isActive: false, label: 'Sit Amet' },
+  { href: '#', isActive: false, label: 'Consectetur' },
 ];
 
 export const categories = [
@@ -209,3 +209,17 @@ export const featuredWorks = [
     palette: 'moss',
   },
 ];
+
+export const portfolioContent = {
+  breadcrumbs: ['Lorem', 'Ipsum'],
+  brand: 'Lorem Ipsum',
+  categoriesHeading: 'Lorem Ipsum',
+  contactHref: 'mailto:lorem@ipsum.test',
+  contactLabel: 'lorem@ipsum.test',
+  loadMoreIdleLabel: 'Lorem ipsum dolor sit amet',
+  loadMoreLoadingLabel: 'Lorem ipsum dolor sit amet...',
+  mobileCategoryLabel: 'Lorem ipsum dolor sit amet.',
+  pageTitle: 'Lorem Ipsum',
+  phoneHref: 'tel:+5511999999999',
+  phoneLabel: 'Lorem ipsum dolor',
+};
