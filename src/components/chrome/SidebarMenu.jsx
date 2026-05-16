@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function SidebarMenu({
   brandLabel,
@@ -11,6 +11,8 @@ function SidebarMenu({
   phoneHref,
   phoneLabel,
 }) {
+  const location = useLocation();
+
   return (
     <header className="page-head">
       {isOpen && (
@@ -45,6 +47,7 @@ function SidebarMenu({
             <Link
               key={item.href}
               className={item.isActive ? 'active' : ''}
+              state={item.href === '/contact' ? { backgroundLocation: location } : undefined}
               to={item.href}
               onClick={onClose}
             >

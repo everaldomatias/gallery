@@ -13,6 +13,10 @@ body {
   color: var(--color-text);
 }
 
+body.body-scroll-locked {
+  touch-action: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;

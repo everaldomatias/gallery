@@ -3,7 +3,7 @@ export const navigation = [
   { href: '#', isActive: false, label: 'Ipsum' },
   { href: '/#portfolio', isActive: true, label: 'Dolor' },
   { href: '#', isActive: false, label: 'Sit Amet' },
-  { href: '#', isActive: false, label: 'Consectetur' },
+  { href: '/contact', isActive: false, label: 'Consectetur' },
 ];
 
 export const categories = ['Todas', 'Lorem', 'Ipsum', 'Dolor', 'Amet', 'Elit'];
@@ -104,4 +104,28 @@ export const portfolioContent = {
   phoneHref: 'tel:+5511999999999',
   phoneLabel: 'Lorem ipsum dolor',
   relatedTitle: 'Lorem Ipsum Dolor',
+  contactModal: {
+    closeLabel: 'Lorem Ipsum',
+    contactItems: [
+      { label: 'Lorem', value: 'lorem@ipsum.test' },
+      { label: 'Ipsum', value: '+55 11 99999 9999' },
+      { label: 'Dolor', value: 'Lorem Ipsum Studio' },
+    ],
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    form: {
+      emailPlaceholder: 'Lorem ipsum',
+      messagePlaceholder: 'Lorem ipsum dolor sit amet',
+      namePlaceholder: 'Lorem ipsum dolor',
+      submitLabel: 'Lorem Ipsum',
+      title: 'Lorem Ipsum',
+    },
+    socials: [
+      { href: '#', label: 'Instagram' },
+      { href: '#', label: 'Behance' },
+      { href: '#', label: 'LinkedIn' },
+      { href: '#', label: 'Are.na' },
+    ],
+    title: 'Lorem Ipsum Dolor Sit Amet',
+  },
 };
