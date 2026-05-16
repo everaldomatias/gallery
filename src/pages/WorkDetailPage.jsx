@@ -16,7 +16,7 @@ function WorkDetailPage() {
   const relatedWorks = getRelatedWorks(work);
 
   if (work.detailLayout === 'split-right') {
-    return <WorkDetailSplitRightLayout relatedWorks={relatedWorks} work={work} />;
+    return <WorkDetailSplitRightLayout work={work} />;
   }
 
   return (

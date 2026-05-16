@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import { portfolioContent } from '../../data/portfolio';
 import WorkDetailMeta from './WorkDetailMeta';
-import WorkRelatedGrid from './WorkRelatedGrid';
 
-function WorkDetailSplitRightLayout({ relatedWorks, work }) {
+function WorkDetailSplitRightLayout({ work }) {
   return (
     <section className="work-detail-page work-detail-page--split">
       <div className="work-detail-shell work-detail-shell--split">
@@ -33,11 +32,6 @@ function WorkDetailSplitRightLayout({ relatedWorks, work }) {
 
               <WorkDetailMeta metaTitle={portfolioContent.detailMetaTitle} work={work} />
             </div>
-
-            <WorkRelatedGrid
-              relatedTitle={portfolioContent.relatedTitle}
-              works={relatedWorks}
-            />
           </div>
         </div>
 
