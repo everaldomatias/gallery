@@ -6,6 +6,7 @@ const LOAD_MORE_DELAY_MS = 650;
 const INTERSECTION_ROOT_MARGIN = '320px 0px 320px 0px';
 
 export function useInfinitePortfolio({ activeCategory, allItems, pageSize }) {
+  const [selectedCategory, setSelectedCategory] = useState(activeCategory);
   const [displayCategory, setDisplayCategory] = useState(activeCategory);
   const [transitionStage, setTransitionStage] = useState('idle');
   const [visibleCount, setVisibleCount] = useState(pageSize);
@@ -27,14 +28,14 @@ export function useInfinitePortfolio({ activeCategory, allItems, pageSize }) {
   const hasMore = visibleCount < visibleItems.length;
 
   useEffect(() => {
-    if (activeCategory === displayCategory) {
+    if (selectedCategory === displayCategory) {
       return undefined;
     }
 
     setTransitionStage('leaving');
 
     const swapTimer = window.setTimeout(() => {
-      setDisplayCategory(activeCategory);
+      setDisplayCategory(selectedCategory);
       setTransitionStage('entering');
     }, FILTER_TRANSITION_OUT_MS);
 
@@ -46,7 +47,7 @@ export function useInfinitePortfolio({ activeCategory, allItems, pageSize }) {
       window.clearTimeout(swapTimer);
       window.clearTimeout(settleTimer);
     };
-  }, [activeCategory, displayCategory]);
+  }, [selectedCategory, displayCategory]);
 
   useEffect(() => {
     setVisibleCount(pageSize);
@@ -88,11 +89,13 @@ export function useInfinitePortfolio({ activeCategory, allItems, pageSize }) {
   }, [isLoadingMore, pageSize, visibleItems.length]);
 
   return {
+    activeCategory: selectedCategory,
     displayCategory,
     hasMore,
     isLoadingMore,
     loadMoreRef,
     paginatedWorks,
+    setActiveCategory: setSelectedCategory,
     transitionStage,
   };
 }

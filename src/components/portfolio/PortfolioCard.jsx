@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom';
+
 function PortfolioCard({ animationDelay, item }) {
   return (
     <article
       className={`portfolio-card ${item.size}`}
       style={{ '--card-delay': `${animationDelay}ms` }}
     >
-      <a href="#" onClick={(event) => event.preventDefault()}>
+      <Link to={`/works/${item.slug}`}>
         <div className={`portfolio-media tone-${item.palette}`} />
         <div className="portfolio-caption">
           <div>
@@ -13,7 +15,7 @@ function PortfolioCard({ animationDelay, item }) {
           <p>{item.description}</p>
           <span className="arrow">→</span>
         </div>
-      </a>
+      </Link>
     </article>
   );
 }

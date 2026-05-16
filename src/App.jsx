@@ -1,30 +1,13 @@
 import { useState } from 'react';
-import HeroBanner from './components/chrome/HeroBanner';
+import { Route, Routes } from 'react-router-dom';
 import SidebarMenu from './components/chrome/SidebarMenu';
-import CategorySidebar from './components/portfolio/CategorySidebar';
-import PageTitle from './components/portfolio/PageTitle';
-import PortfolioGrid from './components/portfolio/PortfolioGrid';
-import PortfolioLoadState from './components/portfolio/PortfolioLoadState';
-import { categories, featuredWorks, navigation, portfolioContent } from './data/portfolio';
-import { useInfinitePortfolio } from './hooks/useInfinitePortfolio';
+import { navigation, portfolioContent } from './data/portfolio';
 import { useMenuDismiss } from './hooks/useMenuDismiss';
+import HomePage from './pages/HomePage';
+import WorkDetailPage from './pages/WorkDetailPage';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(categories[0]);
-  const {
-    displayCategory,
-    hasMore,
-    isLoadingMore,
-    loadMoreRef,
-    paginatedWorks,
-    transitionStage,
-  } =
-    useInfinitePortfolio({
-      activeCategory,
-      allItems: featuredWorks,
-      pageSize: 12,
-    });
 
   useMenuDismiss({
     isOpen: menuOpen,
@@ -46,35 +29,10 @@ function App() {
       />
 
       <main className="page-content" id="top">
-        <HeroBanner brand={portfolioContent.brand} />
-
-        <section className="portfolio-page" id="portfolio">
-          <PageTitle breadcrumbs={portfolioContent.breadcrumbs} title={portfolioContent.pageTitle} />
-
-          <div className="portfolio-layout">
-            <CategorySidebar
-              activeCategory={activeCategory}
-              categories={categories}
-              heading={portfolioContent.categoriesHeading}
-              mobileLabel={portfolioContent.mobileCategoryLabel}
-              onCategoryChange={setActiveCategory}
-            />
-
-            <PortfolioGrid
-              items={paginatedWorks}
-              transitionKey={displayCategory}
-              transitionStage={transitionStage}
-            />
-
-            <PortfolioLoadState
-              hasMore={hasMore}
-              idleLabel={portfolioContent.loadMoreIdleLabel}
-              isLoading={isLoadingMore}
-              loadingLabel={portfolioContent.loadMoreLoadingLabel}
-              loadMoreRef={loadMoreRef}
-            />
-          </div>
-        </section>
+        <Routes>
+          <Route element={<HomePage />} path="/" />
+          <Route element={<WorkDetailPage />} path="/works/:slug" />
+        </Routes>
       </main>
     </div>
   );

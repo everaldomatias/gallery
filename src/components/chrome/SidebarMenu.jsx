@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function SidebarMenu({
   brandLabel,
   contactHref,
@@ -34,20 +36,20 @@ function SidebarMenu({
       </button>
 
       <aside className={isOpen ? 'sidebar-menu open' : 'sidebar-menu'} id="sidebar-menu">
-        <a className="sidebar-brand" href="#top">
+        <Link className="sidebar-brand" to="/">
           {brandLabel}
-        </a>
+        </Link>
 
         <nav className="sidebar-nav">
           {navigationItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               className={item.isActive ? 'active' : ''}
-              href={item.href}
+              to={item.href}
               onClick={onClose}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 

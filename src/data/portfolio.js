@@ -1,214 +1,88 @@
 export const navigation = [
-  { href: '#', isActive: false, label: 'Lorem' },
+  { href: '/', isActive: false, label: 'Lorem' },
   { href: '#', isActive: false, label: 'Ipsum' },
-  { href: '#portfolio', isActive: true, label: 'Dolor' },
+  { href: '/#portfolio', isActive: true, label: 'Dolor' },
   { href: '#', isActive: false, label: 'Sit Amet' },
   { href: '#', isActive: false, label: 'Consectetur' },
 ];
 
-export const categories = [
-  'Todas',
-  'Lorem',
-  'Ipsum',
-  'Dolor',
-  'Amet',
-  'Elit',
+export const categories = ['Todas', 'Lorem', 'Ipsum', 'Dolor', 'Amet', 'Elit'];
+
+const detailLayouts = ['hero', 'split-right'];
+const palettes = ['sun', 'sand', 'clay', 'ink', 'moss', 'mist', 'charcoal', 'rose', 'ochre', 'forest', 'ash', 'copper'];
+
+const worksSeed = [
+  ['Lorem Ipsum', 'Lorem', 'landscape'],
+  ['Dolor Sit', 'Dolor', 'portrait'],
+  ['Amet Elit', 'Ipsum', 'landscape'],
+  ['Consectetur', 'Amet', 'portrait'],
+  ['Adipiscing', 'Lorem', 'landscape'],
+  ['Tempor Incididunt', 'Dolor', 'square'],
+  ['Ut Labore', 'Ipsum', 'portrait'],
+  ['Et Dolore', 'Amet', 'landscape'],
+  ['Magna Aliqua', 'Lorem', 'landscape'],
+  ['Ut Enim', 'Elit', 'portrait'],
+  ['Ad Minim', 'Ipsum', 'landscape'],
+  ['Veniam Quis', 'Elit', 'portrait'],
+  ['Nostrud Exercitation', 'Lorem', 'portrait'],
+  ['Ullamco Laboris', 'Dolor', 'landscape'],
+  ['Nisi Ut', 'Ipsum', 'square'],
+  ['Aliquip Ex', 'Amet', 'portrait'],
+  ['Ea Commodo', 'Lorem', 'landscape'],
+  ['Consequat Duis', 'Elit', 'portrait'],
+  ['Aute Irure', 'Ipsum', 'portrait'],
+  ['Dolor In', 'Amet', 'landscape'],
+  ['Reprehenderit', 'Lorem', 'square'],
+  ['Voluptate Velit', 'Dolor', 'portrait'],
+  ['Esse Cillum', 'Elit', 'landscape'],
+  ['Fugiat Nulla', 'Ipsum', 'landscape'],
 ];
 
-export const featuredWorks = [
-  {
-    id: 1,
-    title: 'Lorem Ipsum',
-    category: 'Lorem',
+export const featuredWorks = worksSeed.map(([title, category, size], index) => {
+  const id = index + 1;
+
+  return {
+    id,
+    slug: `work-${id}`,
+    title,
+    category,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'landscape',
-    palette: 'sun',
-  },
-  {
-    id: 2,
-    title: 'Dolor Sit',
-    category: 'Dolor',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'portrait',
-    palette: 'sand',
-  },
-  {
-    id: 3,
-    title: 'Amet Elit',
-    category: 'Ipsum',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'landscape',
-    palette: 'clay',
-  },
-  {
-    id: 4,
-    title: 'Consectetur',
-    category: 'Amet',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'portrait',
-    palette: 'ink',
-  },
-  {
-    id: 5,
-    title: 'Adipiscing',
-    category: 'Lorem',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'landscape',
-    palette: 'moss',
-  },
-  {
-    id: 6,
-    title: 'Tempor Incididunt',
-    category: 'Dolor',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'square',
-    palette: 'mist',
-  },
-  {
-    id: 7,
-    title: 'Ut Labore',
-    category: 'Ipsum',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'portrait',
-    palette: 'charcoal',
-  },
-  {
-    id: 8,
-    title: 'Et Dolore',
-    category: 'Amet',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'landscape',
-    palette: 'rose',
-  },
-  {
-    id: 9,
-    title: 'Magna Aliqua',
-    category: 'Lorem',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'landscape',
-    palette: 'ochre',
-  },
-  {
-    id: 10,
-    title: 'Ut Enim',
-    category: 'Elit',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'portrait',
-    palette: 'forest',
-  },
-  {
-    id: 11,
-    title: 'Ad Minim',
-    category: 'Ipsum',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'landscape',
-    palette: 'ash',
-  },
-  {
-    id: 12,
-    title: 'Veniam Quis',
-    category: 'Elit',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'portrait',
-    palette: 'copper',
-  },
-  {
-    id: 13,
-    title: 'Nostrud Exercitation',
-    category: 'Lorem',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'portrait',
-    palette: 'sun',
-  },
-  {
-    id: 14,
-    title: 'Ullamco Laboris',
-    category: 'Dolor',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'landscape',
-    palette: 'mist',
-  },
-  {
-    id: 15,
-    title: 'Nisi Ut',
-    category: 'Ipsum',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'square',
-    palette: 'ash',
-  },
-  {
-    id: 16,
-    title: 'Aliquip Ex',
-    category: 'Amet',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'portrait',
-    palette: 'ink',
-  },
-  {
-    id: 17,
-    title: 'Ea Commodo',
-    category: 'Lorem',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'landscape',
-    palette: 'ochre',
-  },
-  {
-    id: 18,
-    title: 'Consequat Duis',
-    category: 'Elit',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'portrait',
-    palette: 'forest',
-  },
-  {
-    id: 19,
-    title: 'Aute Irure',
-    category: 'Ipsum',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'portrait',
-    palette: 'clay',
-  },
-  {
-    id: 20,
-    title: 'Dolor In',
-    category: 'Amet',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'landscape',
-    palette: 'rose',
-  },
-  {
-    id: 21,
-    title: 'Reprehenderit',
-    category: 'Lorem',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'square',
-    palette: 'copper',
-  },
-  {
-    id: 22,
-    title: 'Voluptate Velit',
-    category: 'Dolor',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'portrait',
-    palette: 'sand',
-  },
-  {
-    id: 23,
-    title: 'Esse Cillum',
-    category: 'Elit',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'landscape',
-    palette: 'charcoal',
-  },
-  {
-    id: 24,
-    title: 'Fugiat Nulla',
-    category: 'Ipsum',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-    size: 'landscape',
-    palette: 'moss',
-  },
-];
+    size,
+    palette: palettes[index % palettes.length],
+    detailLayout: detailLayouts[index % detailLayouts.length],
+    detail: {
+      year: '2026',
+      medium: 'Lorem ipsum dolor sit amet',
+      dimensions: '120 x 180 cm',
+      location: 'Lorem Ipsum Studio',
+      heroEyebrow: 'Lorem Ipsum',
+      intro:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      narrative:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      notes: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      ],
+      relatedIds: [((id + 1 - 1) % worksSeed.length) + 1, ((id + 2 - 1) % worksSeed.length) + 1],
+    },
+  };
+});
+
+export function getWorkBySlug(slug) {
+  return featuredWorks.find((work) => work.slug === slug);
+}
+
+export function getRelatedWorks(work) {
+  if (!work) {
+    return [];
+  }
+
+  return work.detail.relatedIds
+    .map((relatedId) => featuredWorks.find((candidate) => candidate.id === relatedId))
+    .filter(Boolean);
+}
 
 export const portfolioContent = {
   breadcrumbs: ['Lorem', 'Ipsum'],
@@ -216,10 +90,13 @@ export const portfolioContent = {
   categoriesHeading: 'Lorem Ipsum',
   contactHref: 'mailto:lorem@ipsum.test',
   contactLabel: 'lorem@ipsum.test',
+  detailBackLabel: 'Lorem Ipsum',
+  detailMetaTitle: 'Lorem Ipsum',
   loadMoreIdleLabel: 'Lorem ipsum dolor sit amet',
   loadMoreLoadingLabel: 'Lorem ipsum dolor sit amet...',
   mobileCategoryLabel: 'Lorem ipsum dolor sit amet.',
   pageTitle: 'Lorem Ipsum',
   phoneHref: 'tel:+5511999999999',
   phoneLabel: 'Lorem ipsum dolor',
+  relatedTitle: 'Lorem Ipsum Dolor',
 };
