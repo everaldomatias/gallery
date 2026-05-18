@@ -1,6 +1,13 @@
-import { aboutContent } from '../data/portfolio';
+import { useAboutPage } from '../hooks/queries/useAboutPage';
 
 function AboutPage() {
+  const { data } = useAboutPage();
+  const aboutContent = data?.aboutContent;
+
+  if (!aboutContent) {
+    return null;
+  }
+
   return (
     <section className="about-page">
       <div className="about-shell">

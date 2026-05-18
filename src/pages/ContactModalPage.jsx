@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { portfolioContent } from '../data/portfolio';
+import { useContactModal } from '../hooks/queries/useContactModal';
 
 function ContactModalPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const backgroundLocation = location.state?.backgroundLocation;
-  const { contactModal } = portfolioContent;
+  const { data } = useContactModal();
+  const contactModal = data?.contactModal;
 
   useEffect(() => {
     const scrollY = window.scrollY;
@@ -45,6 +46,10 @@ function ContactModalPage() {
   }, [backgroundLocation, navigate]);
 
   const closeTarget = backgroundLocation || '/';
+
+  if (!contactModal) {
+    return null;
+  }
 
   return (
     <div className="contact-modal-layer" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">

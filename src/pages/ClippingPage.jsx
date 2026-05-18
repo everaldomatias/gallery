@@ -1,6 +1,13 @@
-import { clippingContent } from '../data/portfolio';
+import { useClippingPage } from '../hooks/queries/useClippingPage';
 
 function ClippingPage() {
+  const { data } = useClippingPage();
+  const clippingContent = data?.clippingContent;
+
+  if (!clippingContent) {
+    return null;
+  }
+
   return (
     <section className="clipping-page">
       <div className="clipping-shell">

@@ -11,7 +11,20 @@ export const navigation = [
 export const categories = ['Todas', 'Lorem', 'Ipsum', 'Dolor', 'Amet', 'Elit'];
 
 const detailLayouts = ['hero', 'split-right'];
-const palettes = ['sun', 'sand', 'clay', 'ink', 'moss', 'mist', 'charcoal', 'rose', 'ochre', 'forest', 'ash', 'copper'];
+const palettes = [
+  'sun',
+  'sand',
+  'clay',
+  'ink',
+  'moss',
+  'mist',
+  'charcoal',
+  'rose',
+  'ochre',
+  'forest',
+  'ash',
+  'copper',
+];
 
 const worksSeed = [
   ['Lorem Ipsum', 'Lorem', 'landscape'],
@@ -48,7 +61,8 @@ export const featuredWorks = worksSeed.map(([title, category, size], index) => {
     slug: `work-${id}`,
     title,
     category,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
     size,
     palette: palettes[index % palettes.length],
     detailLayout: detailLayouts[index % detailLayouts.length],
@@ -76,20 +90,6 @@ export const featuredWorks = worksSeed.map(([title, category, size], index) => {
     },
   };
 });
-
-export function getWorkBySlug(slug) {
-  return featuredWorks.find((work) => work.slug === slug);
-}
-
-export function getRelatedWorks(work) {
-  if (!work) {
-    return [];
-  }
-
-  return work.detail.relatedIds
-    .map((relatedId) => featuredWorks.find((candidate) => candidate.id === relatedId))
-    .filter(Boolean);
-}
 
 export const portfolioContent = {
   breadcrumbs: ['Lorem', 'Ipsum'],
@@ -325,7 +325,7 @@ export const legalPagesContent = {
         entries: [
           'Podem ser coletados dados fornecidos diretamente pelo usuario, como nome, e-mail, telefone, mensagem enviada e outras informacoes inseridas em formularios.',
           'Tambem podem ser coletados dados tecnicos de navegacao, como endereco IP, tipo de dispositivo, navegador, paginas acessadas e horarios de acesso.',
-          'Dependendo da configuracao tecnica do site, podera haver coleta indireta por ferramentas de analytics, formulários, provedores de hospedagem, recursos embarcados ou plataformas de comunicacao.',
+          'Dependendo da configuracao tecnica do site, podera haver coleta indireta por ferramentas de analytics, formularios, provedores de hospedagem, recursos embarcados ou plataformas de comunicacao.',
         ],
         title: '3. Dados Coletados',
       },
@@ -396,7 +396,7 @@ export const legalPagesContent = {
           'As demandas relacionadas a privacidade e protecao de dados podem ser encaminhadas pelos canais de contato institucionais disponibilizados neste site.',
           'Quando aplicavel, o controlador podera indicar responsavel ou canal especifico para atendimento de titulares e interlocucao sobre dados pessoais.',
         ],
-        title: '12. Contato e Exercício de Direitos',
+        title: '12. Contato e Exercicio de Direitos',
       },
       {
         entries: [
@@ -495,7 +495,7 @@ export const legalPagesContent = {
       {
         entries: [
           'Este documento sera regido pelas leis da Republica Federativa do Brasil, observadas as normas aplicaveis, inclusive em materia de protecao de dados pessoais.',
-          'Sempre que cabivel, as partes envidarao esforcos para resolver controvérsias de forma administrativa antes da adocao de medidas judiciais.',
+          'Sempre que cabivel, as partes envidarao esforcos para resolver controversias de forma administrativa antes da adocao de medidas judiciais.',
         ],
         title: '12. Legislacao Aplicavel e Foro',
       },
@@ -503,3 +503,21 @@ export const legalPagesContent = {
     updatedAt: 'Ultima atualizacao: 18 de maio de 2026',
   },
 };
+
+export function getWorkBySlug(slug) {
+  return featuredWorks.find((work) => work.slug === slug) ?? null;
+}
+
+export function getRelatedWorks(work) {
+  if (!work) {
+    return [];
+  }
+
+  return work.detail.relatedIds
+    .map((relatedId) => featuredWorks.find((candidate) => candidate.id === relatedId))
+    .filter(Boolean);
+}
+
+export function getLegalPage(legalType) {
+  return legalPagesContent[legalType] ?? null;
+}

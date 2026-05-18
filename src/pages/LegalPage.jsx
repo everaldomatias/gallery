@@ -1,12 +1,17 @@
 import { Navigate, useParams } from 'react-router-dom';
-import { legalPagesContent } from '../data/portfolio';
+import { useLegalPage } from '../hooks/queries/useLegalPage';
 
 function LegalPage() {
   const { legalType } = useParams();
-  const content = legalPagesContent[legalType];
+  const { data, isLoading } = useLegalPage(legalType);
+  const content = data?.legalPage;
+
+  if (!isLoading && !content) {
+    return <Navigate replace to="/" />;
+  }
 
   if (!content) {
-    return <Navigate replace to="/" />;
+    return null;
   }
 
   return (

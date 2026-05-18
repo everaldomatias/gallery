@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
-import { portfolioContent } from '../../data/portfolio';
 import WorkDetailMeta from './WorkDetailMeta';
 
-function WorkDetailSplitRightLayout({ work }) {
+function WorkDetailSplitRightLayout({ detailBackLabel, detailMetaTitle, work }) {
   return (
     <section className="work-detail-page work-detail-page--split">
       <div className="work-detail-shell work-detail-shell--split">
         <div className="work-detail-scroll-column">
           <div className="work-detail-scroll-inner">
             <Link className="work-detail-back" to="/">
-              ← {portfolioContent.detailBackLabel}
+              ← {detailBackLabel}
             </Link>
 
             <section className="work-hero work-hero-split">
@@ -30,7 +29,7 @@ function WorkDetailSplitRightLayout({ work }) {
                 </ul>
               </div>
 
-              <WorkDetailMeta metaTitle={portfolioContent.detailMetaTitle} work={work} />
+              <WorkDetailMeta metaTitle={detailMetaTitle} work={work} />
             </div>
           </div>
         </div>

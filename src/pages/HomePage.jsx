@@ -3,10 +3,14 @@ import CategorySidebar from '../components/portfolio/CategorySidebar';
 import PageTitle from '../components/portfolio/PageTitle';
 import PortfolioGrid from '../components/portfolio/PortfolioGrid';
 import PortfolioLoadState from '../components/portfolio/PortfolioLoadState';
-import { categories, featuredWorks, portfolioContent } from '../data/portfolio';
 import { useInfinitePortfolio } from '../hooks/useInfinitePortfolio';
+import { usePortfolioPage } from '../hooks/queries/usePortfolioPage';
 
 function HomePage() {
+  const { data } = usePortfolioPage();
+  const categories = data?.categories ?? [];
+  const featuredWorks = data?.featuredWorks ?? [];
+  const portfolioContent = data?.portfolioContent;
   const {
     activeCategory,
     displayCategory,
@@ -17,10 +21,14 @@ function HomePage() {
     setActiveCategory,
     transitionStage,
   } = useInfinitePortfolio({
-    activeCategory: categories[0],
+    activeCategory: categories[0] ?? 'Todas',
     allItems: featuredWorks,
     pageSize: 12,
   });
+
+  if (!portfolioContent) {
+    return null;
+  }
 
   return (
     <>

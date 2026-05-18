@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import SidebarMenu from './components/chrome/SidebarMenu';
-import { navigation, portfolioContent } from './data/portfolio';
 import { useMenuDismiss } from './hooks/useMenuDismiss';
+import { useSiteShell } from './hooks/queries/useSiteShell';
 import AboutPage from './pages/AboutPage';
 import ClippingPage from './pages/ClippingPage';
 import ContactModalPage from './pages/ContactModalPage';
@@ -14,6 +14,7 @@ import WorkDetailPage from './pages/WorkDetailPage';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const { data: siteShell } = useSiteShell();
   const backgroundLocation = location.state?.backgroundLocation;
   const contentLocation =
     backgroundLocation ||
@@ -24,18 +25,22 @@ function App() {
     onDismiss: () => setMenuOpen(false),
   });
 
+  if (!siteShell) {
+    return null;
+  }
+
   return (
     <div className="page-shell">
       <SidebarMenu
-        brandLabel={portfolioContent.brand}
-        contactLabel={portfolioContent.contactLabel}
-        contactHref={portfolioContent.contactHref}
+        brandLabel={siteShell.portfolioContent.brand}
+        contactLabel={siteShell.portfolioContent.contactLabel}
+        contactHref={siteShell.portfolioContent.contactHref}
         isOpen={menuOpen}
-        navigationItems={navigation}
+        navigationItems={siteShell.navigation}
         onClose={() => setMenuOpen(false)}
         onToggle={() => setMenuOpen((open) => !open)}
-        phoneHref={portfolioContent.phoneHref}
-        phoneLabel={portfolioContent.phoneLabel}
+        phoneHref={siteShell.portfolioContent.phoneHref}
+        phoneLabel={siteShell.portfolioContent.phoneLabel}
       />
 
       <main className="page-content" id="top">

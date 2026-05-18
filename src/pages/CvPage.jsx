@@ -1,6 +1,13 @@
-import { cvContent } from '../data/portfolio';
+import { useCvPage } from '../hooks/queries/useCvPage';
 
 function CvPage() {
+  const { data } = useCvPage();
+  const cvContent = data?.cvContent;
+
+  if (!cvContent) {
+    return null;
+  }
+
   return (
     <section className="cv-page">
       <div className="cv-shell">

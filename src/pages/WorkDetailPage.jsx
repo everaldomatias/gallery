@@ -3,20 +3,31 @@ import WorkDetailHero from '../components/work-detail/WorkDetailHero';
 import WorkDetailMeta from '../components/work-detail/WorkDetailMeta';
 import WorkRelatedGrid from '../components/work-detail/WorkRelatedGrid';
 import WorkDetailSplitRightLayout from '../components/work-detail/WorkDetailSplitRightLayout';
-import { getRelatedWorks, getWorkBySlug, portfolioContent } from '../data/portfolio';
+import { useWorkDetailPage } from '../hooks/queries/useWorkDetailPage';
 
 function WorkDetailPage() {
   const { slug } = useParams();
-  const work = getWorkBySlug(slug);
+  const { data, isLoading } = useWorkDetailPage(slug);
+  const portfolioContent = data?.portfolioContent;
+  const relatedWorks = data?.relatedWorks ?? [];
+  const work = data?.work;
 
-  if (!work) {
+  if (!isLoading && !work) {
     return <Navigate replace to="/" />;
   }
 
-  const relatedWorks = getRelatedWorks(work);
+  if (!work || !portfolioContent) {
+    return null;
+  }
 
   if (work.detailLayout === 'split-right') {
-    return <WorkDetailSplitRightLayout work={work} />;
+    return (
+      <WorkDetailSplitRightLayout
+        detailBackLabel={portfolioContent.detailBackLabel}
+        detailMetaTitle={portfolioContent.detailMetaTitle}
+        work={work}
+      />
+    );
   }
 
   return (
