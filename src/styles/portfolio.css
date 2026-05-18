@@ -129,6 +129,9 @@
   width: 100%;
   background-position: center;
   background-size: cover;
+  transition:
+    filter 260ms var(--easing-standard),
+    opacity 260ms var(--easing-standard);
 }
 
 .portfolio-caption {
@@ -136,6 +139,11 @@
   min-height: 168px;
   padding: var(--space-md) var(--space-2xl) var(--space-xl);
   background: var(--color-surface);
+  transition:
+    background var(--duration-fast) var(--easing-standard),
+    box-shadow var(--duration-fast) var(--easing-standard),
+    border-color var(--duration-fast) var(--easing-standard);
+  border-top: 1px solid transparent;
 }
 
 .portfolio-caption h3 {
@@ -160,6 +168,25 @@
   right: var(--space-2xl);
   bottom: 22px;
   font-size: 1.25rem;
+  transition:
+    transform var(--duration-fast) var(--easing-standard),
+    opacity var(--duration-fast) var(--easing-standard);
+  opacity: 0.72;
+}
+
+.portfolio-card:hover .portfolio-media {
+  filter: saturate(1.08) contrast(1.03);
+}
+
+.portfolio-card:hover .portfolio-caption {
+  background: #fdfcf9;
+  box-shadow: inset 0 1px 0 rgba(29, 26, 23, 0.08);
+  border-top-color: rgba(29, 26, 23, 0.12);
+}
+
+.portfolio-card:hover .arrow {
+  transform: translateX(4px);
+  opacity: 1;
 }
 
 .portfolio-load-state {
