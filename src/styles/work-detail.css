@@ -20,7 +20,7 @@
 .work-detail-scroll-inner {
   display: grid;
   gap: var(--space-4xl);
-  padding: var(--space-6xl) var(--space-3xl);
+  padding: var(--space-8xl) var(--space-3xl);
 }
 
 .work-detail-fixed-media-column {

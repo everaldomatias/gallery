@@ -1,5 +1,9 @@
 @import './tokens.css';
+@import './about.css';
 @import './base.css';
+@import './clipping.css';
+@import './cv.css';
+@import './legal.css';
 @import './modal.css';
 @import './layout.css';
 @import './portfolio.css';
