@@ -27,6 +27,8 @@
   --space-4xl: 36px;
   --space-5xl: 44px;
   --space-6xl: 72px;
+  --space-7xl: 96px;
+  --space-8xl: 120px;
   --size-menu-button: 54px;
   --sidebar-width: min(320px, 88vw);
   --radius-sm: 12px;

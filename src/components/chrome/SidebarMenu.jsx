@@ -38,7 +38,7 @@ function SidebarMenu({
       </button>
 
       <aside className={isOpen ? 'sidebar-menu open' : 'sidebar-menu'} id="sidebar-menu">
-        <Link className="sidebar-brand" to="/">
+        <Link className="sidebar-brand" onClick={onClose} to="/">
           {brandLabel}
         </Link>
 
