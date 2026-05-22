@@ -33,6 +33,11 @@
   grid-template-columns: 240px 1fr;
   gap: var(--space-2xl);
   margin-top: var(--space-4xl);
+  align-items: start;
+}
+
+.portfolio-layout > * {
+  min-width: 0;
 }
 
 .portfolio-sidebar {
@@ -83,6 +88,9 @@
 }
 
 .portfolio-grid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   column-count: 3;
   column-gap: 30px;
   transition:
@@ -103,6 +111,7 @@
 .portfolio-card {
   display: inline-block;
   width: 100%;
+  max-width: 100%;
   margin: 0 0 30px;
   break-inside: avoid;
   animation: cardReveal var(--duration-slow) var(--easing-emphasized) both;
@@ -111,6 +120,7 @@
 
 .portfolio-card a {
   display: block;
+  min-width: 0;
 }
 
 .portfolio-card.landscape .portfolio-media {
@@ -150,6 +160,7 @@
   margin: 0;
   font-size: 2rem;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .portfolio-caption p,
@@ -161,6 +172,7 @@
 .portfolio-caption p {
   margin: var(--space-sm) 0 0;
   line-height: 1.65;
+  overflow-wrap: anywhere;
 }
 
 .arrow {
